@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 
+@Builder
 @JsonPropertyOrder({"grade", "habit", "name"})
 public class JsonPropertyOrderDTO {
     String name;
