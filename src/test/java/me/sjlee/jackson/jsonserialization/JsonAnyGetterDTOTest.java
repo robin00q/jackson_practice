@@ -1,4 +1,4 @@
-package me.sjlee.jackson.jsonanygetter;
+package me.sjlee.jackson.jsonserialization;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,9 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class JsonAnyGetterDTOTest {
 
-    @Autowired
-    ObjectMapper objectMapper;
-
     @Test
     void test() throws JsonProcessingException {
         // given
@@ -20,7 +17,9 @@ class JsonAnyGetterDTOTest {
         jsonAnyGetterDTO.getProperties().put("name", "sukjunelee");
 
         // when
-        String json = new ObjectMapper().writeValueAsString(jsonAnyGetterDTO);
+        String json = new ObjectMapper()
+                .writerWithDefaultPrettyPrinter()
+                .writeValueAsString(jsonAnyGetterDTO);
 
         // then
         assertEquals(json.contains("tistory"), true);

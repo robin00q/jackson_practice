@@ -1,4 +1,4 @@
-package me.sjlee.jackson.jsonanygetter;
+package me.sjlee.jackson.jsonserialization;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 
@@ -8,7 +8,7 @@ import java.util.Map;
 public class JsonAnyGetterDTO {
     private Map<String, String> properties = new HashMap<>();
 
-    @JsonAnyGetter
+    @JsonAnyGetter(enabled = false)
     public Map<String, String> getProperties() {
         return properties;
     }
